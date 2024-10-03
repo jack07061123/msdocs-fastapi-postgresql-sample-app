@@ -62,6 +62,9 @@ async def create_restaurant(request: Request):
     logger.info("Request for add restaurant page received")
     return templates.TemplateResponse("create_restaurant.html", {"request": request})
 
+@app.get("/blog/{id}")
+def get_blog(id):
+    return {"data":f"Blog 的 id 是：{id}"}
 
 @app.post("/add", response_class=RedirectResponse)
 async def add_restaurant(
